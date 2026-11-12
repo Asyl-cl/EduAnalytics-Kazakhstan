@@ -252,18 +252,18 @@ const I18N = {
 
 const CHAT_PROMPTS = [
   {
-    labelRu: "📊 Результаты PISA-2025",
-    labelKz: "📊 PISA-2025 нәтижелері",
+    labelRu: "Результаты PISA-2025",
+    labelKz: "PISA-2025 нәтижелері",
     query: "PISA-2025 результаты",
   },
   {
-    labelRu: "📖 УМК 8 класс 2027",
-    labelKz: "📖 8-сынып ОӘК 2027",
+    labelRu: "УМК 8 класс 2027",
+    labelKz: "8-сынып ОӘК 2027",
     query: "8 класс учебники 2027",
   },
   {
-    labelRu: "👩‍🏫 Этика диалога с учителем",
-    labelKz: "👩‍🏫 Мұғаліммен диалог этикасы",
+    labelRu: "Этика диалога с учителем",
+    labelKz: "Мұғаліммен диалог этикасы",
     query: "этика диалога с учителем",
   },
 ];
@@ -414,7 +414,7 @@ export default function App() {
             : "Издательство Атамура",
         rating: "4.8",
         progress: 87,
-        bg: "from-emerald-500 to-teal-600",
+        bg: "bg-[#324436]",
         icon: "∑",
       },
       {
@@ -428,7 +428,7 @@ export default function App() {
             : "Издательство Алматыкитап",
         rating: "4.9",
         progress: 74,
-        bg: "from-blue-500 to-indigo-600",
+        bg: "bg-[#536f57]",
         icon: "△",
       },
       {
@@ -439,7 +439,7 @@ export default function App() {
         author: "Арман-ПВ",
         rating: "4.6",
         progress: 68,
-        bg: "from-purple-500 to-pink-600",
+        bg: "bg-[#3f5643]",
         icon: "%",
       },
       {
@@ -453,7 +453,7 @@ export default function App() {
             : "Издательство Мектеп",
         rating: "4.7",
         progress: 81,
-        bg: "from-amber-500 to-orange-600",
+        bg: "bg-[#28372c]",
         icon: "ƒ",
       },
       {
@@ -464,7 +464,7 @@ export default function App() {
             : "Издательство Атамура",
         rating: "4.8",
         progress: 59,
-        bg: "from-rose-500 to-red-600",
+        bg: "bg-[#6b8570]",
         icon: "sin",
       },
       {
@@ -472,7 +472,7 @@ export default function App() {
         author: "Арман-ПВ",
         rating: "4.5",
         progress: 72,
-        bg: "from-cyan-500 to-blue-600",
+        bg: "bg-[#c2453a]",
         icon: "σ",
       },
     ],
@@ -527,37 +527,30 @@ export default function App() {
   const navigation: {
     id: Tab;
     label: string;
-    icon: string;
   }[] = [
     {
       id: "dashboard",
       label: t.dashboard,
-      icon: "📊",
     },
     {
       id: "courses",
       label: t.courses,
-      icon: "📚",
     },
     {
       id: "students",
       label: t.students,
-      icon: "👩‍🎓",
     },
     {
       id: "schedule",
       label: t.schedule,
-      icon: "🗓️",
     },
     {
       id: "chat",
       label: t.chat,
-      icon: "🤖",
     },
     {
       id: "settings",
       label: t.settings,
-      icon: "⚙️",
     },
   ];
 
@@ -590,23 +583,23 @@ export default function App() {
     <div
       className={`${
         darkMode ? "dark" : ""
-      } min-h-screen bg-slate-50 dark:bg-[#0d141b] text-slate-900 dark:text-white flex`}
+      } min-h-screen bg-[#f7f6f0] dark:bg-[#121914] text-[#1f2924] dark:text-white flex`}
     >
       {/* SIDEBAR */}
-      <aside className="w-64 shrink-0 bg-white dark:bg-[#141b22] border-r border-slate-200 dark:border-slate-800 p-5 flex flex-col justify-between">
+      <aside className="w-64 shrink-0 bg-white dark:bg-[#1a241e] border-r border-[#c5d0c7] dark:border-[#324436] p-5 flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-3 mb-10">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black">
+            <div className="w-10 h-10 rounded-lg bg-[#324436] dark:bg-[#536f57] text-white flex items-center justify-center font-semibold">
               Ұ
             </div>
 
             <div>
-              <div className="font-extrabold text-sm">
+              <div className="font-semibold text-sm">
                 Ұстаз-Аналитика
               </div>
 
-              <div className="text-[10px] text-slate-400">
-                EDUCATION PLATFORM
+              <div className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
+                Education platform
               </div>
             </div>
           </div>
@@ -616,13 +609,12 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-left text-xs font-bold transition-all ${
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left text-xs font-bold transition-all ${
                   activeTab === item.id
-                    ? "bg-emerald-600 text-white shadow-sm"
-                    : "text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    ? "bg-[#324436] dark:bg-[#536f57] text-white"
+                    : "text-[#536f57] hover:bg-[#eeeedf] dark:hover:bg-[#222d25]"
                 }`}
               >
-                <span>{item.icon}</span>
                 <span>{item.label}</span>
               </button>
             ))}
@@ -630,22 +622,19 @@ export default function App() {
         </div>
 
         <div className="space-y-4">
-          <div className="p-4 rounded-3xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40 text-center space-y-2">
-            <div className="w-9 h-9 mx-auto rounded-full bg-white dark:bg-slate-800 text-emerald-600 flex items-center justify-center shadow-sm text-base">
-              🎓
-            </div>
+          <div className="p-4 rounded-xl bg-[#e3e8e4] dark:bg-[#222d25]/40 border border-emerald-200/60 dark:border-emerald-800/40 text-center space-y-2">
 
-            <h4 className="font-bold text-xs text-slate-900 dark:text-white">
+            <h4 className="font-bold text-xs text-[#1f2924] dark:text-white">
               {t.pisaModuleTitle}
             </h4>
 
-            <p className="text-[10px] text-slate-500 dark:text-slate-400">
+            <p className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
               {t.pisaModuleSub}
             </p>
 
             <button
               onClick={() => setActiveTab("schedule")}
-              className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-[11px] font-bold transition-all shadow-sm"
+              className="w-full py-2 bg-[#324436] dark:bg-[#536f57] hover:bg-[#28372c] text-white rounded-xl text-[11px] font-bold transition-all"
             >
               {t.upgrade}
             </button>
@@ -656,25 +645,24 @@ export default function App() {
       {/* MAIN */}
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         {/* HEADER */}
-        <header className="sticky top-0 z-30 bg-white/80 dark:bg-[#141b22]/80 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-800 px-6 py-4 flex items-center justify-between gap-4">
+        <header className="sticky top-0 z-30 bg-white/80 dark:bg-[#1a241e]/80 backdrop-blur-md border-b border-[#c5d0c7]/70 dark:border-[#324436] px-6 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 flex-1 max-w-md">
-            <span className="text-slate-400">🔍</span>
 
             <input
               type="text"
               placeholder={t.searchPlaceholder}
-              className="w-full bg-slate-100 dark:bg-slate-800/60 border-none rounded-2xl px-4 py-2 text-xs focus:ring-2 focus:ring-emerald-500/30 text-slate-800 dark:text-slate-100 outline-none"
+              className="w-full bg-[#eeeedf] dark:bg-[#222d25]/60 border-none rounded-lg px-4 py-2 text-xs focus:ring-2 focus:ring-[#536f57]/40 text-[#222d25] dark:text-[#eeeedf] outline-none"
             />
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-slate-100 dark:bg-slate-800 p-1 rounded-2xl flex text-xs font-bold border border-slate-200/60 dark:border-slate-700">
+            <div className="bg-[#eeeedf] dark:bg-[#222d25] p-1 rounded-lg flex text-xs font-bold border border-[#c5d0c7]/60 dark:border-[#3f5643]">
               <button
                 onClick={() => setLang("ru")}
                 className={`px-3 py-1.5 rounded-xl transition-all ${
                   lang === "ru"
-                    ? "bg-emerald-600 text-white shadow-sm"
-                    : "text-slate-600 dark:text-slate-400"
+                    ? "bg-[#324436] dark:bg-[#536f57] text-white"
+                    : "text-[#3f5643] dark:text-[#9cb19f]"
                 }`}
               >
                 RU
@@ -684,8 +672,8 @@ export default function App() {
                 onClick={() => setLang("kz")}
                 className={`px-3 py-1.5 rounded-xl transition-all ${
                   lang === "kz"
-                    ? "bg-emerald-600 text-white shadow-sm"
-                    : "text-slate-600 dark:text-slate-400"
+                    ? "bg-[#324436] dark:bg-[#536f57] text-white"
+                    : "text-[#3f5643] dark:text-[#9cb19f]"
                 }`}
               >
                 ҚАЗ
@@ -694,13 +682,13 @@ export default function App() {
 
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="w-9 h-9 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-sm"
+              className="h-9 px-3 rounded-lg border border-[#c5d0c7] dark:border-[#3f5643] flex items-center justify-center font-medium hover:bg-[#eeeedf] dark:hover:bg-[#222d25] transition-all text-sm"
             >
-              {darkMode ? "☀️" : "🌙"}
+              {darkMode ? "Light" : "Dark"}
             </button>
 
-            <div className="flex items-center gap-3 pl-2 border-l border-slate-200 dark:border-slate-800">
-              <div className="w-9 h-9 rounded-2xl bg-slate-800 text-white flex items-center justify-center font-bold text-xs shadow-sm">
+            <div className="flex items-center gap-3 pl-2 border-l border-[#c5d0c7] dark:border-[#324436]">
+              <div className="w-9 h-9 rounded-lg bg-[#222d25] text-white flex items-center justify-center font-bold text-xs">
                 M
               </div>
 
@@ -709,7 +697,7 @@ export default function App() {
                   Мартин Рай
                 </span>
 
-                <span className="text-[10px] text-slate-400 block">
+                <span className="text-[10px] text-[#536f57] dark:text-[#9cb19f] block">
                   {t.userRole}
                 </span>
               </div>
@@ -727,20 +715,18 @@ export default function App() {
           {activeTab === "dashboard" && (
             <div className="space-y-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-                <div className="lg:col-span-8 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 rounded-3xl p-7 text-white shadow-lg relative overflow-hidden flex flex-col justify-between min-h-[220px]">
-                  <div className="absolute -right-16 -top-20 w-64 h-64 rounded-full bg-white/10" />
-                  <div className="absolute right-20 bottom-[-80px] w-48 h-48 rounded-full bg-white/10" />
+                <div className="lg:col-span-8 bg-[#222d25] border border-[#324436] rounded-xl p-7 text-white relative overflow-hidden flex flex-col justify-between min-h-[220px]">
 
                   <div className="relative z-10 space-y-2">
-                    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-bold uppercase tracking-wider">
+                    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-bold">
                       Ұстаз-Аналитика РК
                     </span>
 
-                    <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight pt-2 text-white">
+                    <h2 className="font-serif text-2xl sm:text-3xl font-semibold tracking-tight pt-2 text-white">
                       {t.welcomeTitle}
                     </h2>
 
-                    <p className="text-xs sm:text-sm text-emerald-100 max-w-lg">
+                    <p className="text-xs sm:text-sm text-[#c5d0c7] max-w-lg">
                       {t.welcomeSub}
                     </p>
                   </div>
@@ -748,14 +734,14 @@ export default function App() {
                   <div className="relative z-10 flex flex-wrap gap-3 pt-4">
                     <button
                       onClick={() => setActiveTab("students")}
-                      className="px-5 py-2.5 bg-white text-emerald-700 rounded-2xl text-xs font-bold shadow-sm hover:bg-emerald-50 transition-all"
+                      className="px-5 py-2.5 bg-white text-[#324436] rounded-lg text-xs font-bold hover:bg-[#e3e8e4] transition-all"
                     >
                       {t.viewProgress}
                     </button>
 
                     <button
                       onClick={() => setActiveTab("schedule")}
-                      className="px-5 py-2.5 bg-emerald-700/50 hover:bg-emerald-700/70 border border-white/20 text-white rounded-2xl text-xs font-bold transition-all"
+                      className="px-5 py-2.5 bg-[#28372c]/50 hover:bg-[#28372c]/70 border border-white/20 text-white rounded-lg text-xs font-bold transition-all"
                     >
                       {t.planHours}
                     </button>
@@ -763,9 +749,9 @@ export default function App() {
                 </div>
 
                 {/* CALENDAR */}
-                <div className="lg:col-span-4 bg-white dark:bg-[#141b22] rounded-3xl p-6 border border-slate-200/70 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+                <div className="lg:col-span-4 bg-white dark:bg-[#1a241e] rounded-xl p-6 border border-[#c5d0c7]/70 dark:border-[#324436] flex flex-col justify-between">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-xs uppercase tracking-wider text-slate-400">
+                    <h3 className="font-serif font-bold text-xs text-[#536f57] dark:text-[#9cb19f]">
                       {t.calendarMonth}
                     </h3>
 
@@ -781,7 +767,7 @@ export default function App() {
                     ).map((day, index) => (
                       <span
                         key={index}
-                        className="text-slate-400 text-[10px] font-bold"
+                        className="text-[#536f57] dark:text-[#9cb19f] text-[10px] font-bold"
                       >
                         {day}
                       </span>
@@ -796,8 +782,8 @@ export default function App() {
                           key={index}
                           className={`py-1 rounded-xl text-xs font-semibold cursor-pointer transition-all ${
                             isToday
-                              ? "bg-emerald-500 text-white font-bold shadow-sm"
-                              : "hover:bg-slate-100 dark:hover:bg-slate-800"
+                              ? "bg-[#536f57] text-white font-bold"
+                              : "hover:bg-[#eeeedf] dark:hover:bg-[#222d25]"
                           }`}
                         >
                           {day}
@@ -806,8 +792,8 @@ export default function App() {
                     })}
                   </div>
 
-                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                    <span className="text-slate-400">
+                  <div className="pt-2 border-t border-[#e3e8e4] dark:border-[#324436] flex items-center justify-between text-xs">
+                    <span className="text-[#536f57] dark:text-[#9cb19f]">
                       {t.pisaReportDate}
                     </span>
 
@@ -825,41 +811,34 @@ export default function App() {
                     label: t.totalSchools,
                     val: "8,048",
                     sub: t.covFull,
-                    icon: "🏫",
                   },
                   {
                     label: t.pisaRank,
                     val: lang === "kz" ? "53-орын" : "53 место",
                     sub: t.in91Countries,
-                    icon: "📊",
                   },
                   {
                     label: t.teachersCount,
                     val: "415.5k",
                     sub: t.teachersCount,
-                    icon: "👩‍🏫",
                   },
                   {
                     label: t.avgScore,
                     val: "68.4",
                     sub: `${t.avgScore}: ${targetScore}`,
-                    icon: "🎯",
                   },
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="bg-white dark:bg-[#141b22] rounded-3xl p-5 border border-slate-200/70 dark:border-slate-800 shadow-sm flex items-center gap-4"
+                    className="bg-white dark:bg-[#1a241e] rounded-xl p-5 border border-[#c5d0c7]/70 dark:border-[#324436] flex items-center gap-4"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center text-xl shrink-0 font-bold">
-                      {stat.icon}
-                    </div>
 
                     <div>
-                      <span className="text-[11px] font-medium text-slate-400 block">
+                      <span className="text-[11px] font-medium text-[#536f57] dark:text-[#9cb19f] block">
                         {stat.label}
                       </span>
 
-                      <span className="text-xl font-extrabold text-slate-900 dark:text-white block">
+                      <span className="text-xl font-semibold text-[#1f2924] dark:text-white block">
                         {stat.val}
                       </span>
 
@@ -872,13 +851,13 @@ export default function App() {
               </div>
 
               {/* ACTIVITY */}
-              <section className="bg-white dark:bg-[#141b22] rounded-3xl p-6 border border-slate-200/70 dark:border-slate-800 shadow-sm">
+              <section className="bg-white dark:bg-[#1a241e] rounded-xl p-6 border border-[#c5d0c7]/70 dark:border-[#324436]">
                 <div className="flex items-center justify-between mb-5">
-                  <h3 className="font-bold text-sm">
+                  <h3 className="font-serif font-bold text-sm">
                     {t.weeklyActivity}
                   </h3>
 
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-[#536f57] dark:text-[#9cb19f]">
                     {t.weeklySub}
                   </span>
                 </div>
@@ -890,14 +869,14 @@ export default function App() {
                       className="flex flex-col items-center gap-2 h-full justify-end"
                     >
                       <div
-                        className="w-full max-w-16 rounded-t-lg bg-gradient-to-t from-emerald-600 to-emerald-400"
+                        className="w-full max-w-16 rounded-t-lg bg-[#536f57]"
                         style={{
                           height: `${item.score}%`,
                         }}
                         title={`${item.score}%`}
                       />
 
-                      <span className="text-[10px] text-slate-400">
+                      <span className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
                         {item.name}
                       </span>
                     </div>
@@ -911,11 +890,11 @@ export default function App() {
           {activeTab === "courses" && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                <h2 className="font-serif text-xl font-bold text-[#1f2924] dark:text-white">
                   {t.coursesTitle}
                 </h2>
 
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-[#536f57] dark:text-[#9cb19f] mt-1">
                   {t.coursesSub}
                 </p>
               </div>
@@ -924,38 +903,31 @@ export default function App() {
                 {coursesList.map((course) => (
                   <article
                     key={course.title}
-                    className="bg-white dark:bg-[#141b22] rounded-3xl overflow-hidden border border-slate-200/70 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all"
+                    className="bg-white dark:bg-[#1a241e] rounded-xl overflow-hidden border border-[#c5d0c7]/70 dark:border-[#324436] transition-all"
                   >
                     <div
-                      className={`h-32 bg-gradient-to-br ${course.bg} p-5 relative overflow-hidden`}
+                      className={`h-16 ${course.bg} p-5 relative overflow-hidden`}
                     >
-                      <div className="absolute -right-5 -bottom-10 text-8xl font-black text-white/10">
-                        {course.icon}
-                      </div>
 
                       <div className="relative z-10">
-                        <span className="text-[10px] uppercase tracking-wider font-bold text-white/70">
+                        <span className="text-[10px] font-bold text-white/70">
                           {t.courses}
                         </span>
-
-                        <div className="text-4xl font-black text-white mt-2">
-                          {course.icon}
-                        </div>
                       </div>
                     </div>
 
                     <div className="p-5">
-                      <h3 className="font-bold text-sm">
+                      <h3 className="font-serif font-bold text-sm">
                         {course.title}
                       </h3>
 
-                      <p className="text-xs text-slate-400 mt-2">
+                      <p className="text-xs text-[#536f57] dark:text-[#9cb19f] mt-2">
                         {course.author}
                       </p>
 
                       <div className="flex items-center justify-between mt-4">
                         <span className="text-xs text-amber-500 font-bold">
-                          ★ {course.rating}
+                          {course.rating}
                         </span>
 
                         <span className="text-[10px] font-bold text-emerald-600">
@@ -963,9 +935,9 @@ export default function App() {
                         </span>
                       </div>
 
-                      <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full mt-2 overflow-hidden">
+                      <div className="h-2 bg-[#eeeedf] dark:bg-[#222d25] rounded-full mt-2 overflow-hidden">
                         <div
-                          className={`h-full rounded-full bg-gradient-to-r ${course.bg}`}
+                          className={`h-full rounded-full ${course.bg}`}
                           style={{
                             width: `${course.progress}%`,
                           }}
@@ -974,7 +946,7 @@ export default function App() {
 
                       <button
                         type="button"
-                        className="w-full mt-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white text-xs font-bold transition-all"
+                        className="w-full mt-5 py-2.5 rounded-xl bg-[#eeeedf] dark:bg-[#222d25] hover:bg-[#324436] dark:bg-[#536f57] hover:text-white text-xs font-bold transition-all"
                       >
                         {lang === "kz"
                           ? "Курсты ашу"
@@ -991,23 +963,23 @@ export default function App() {
           {activeTab === "students" && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                <h2 className="font-serif text-xl font-bold text-[#1f2924] dark:text-white">
                   {t.studentsTitle}
                 </h2>
 
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-[#536f57] dark:text-[#9cb19f] mt-1">
                   {t.studentsSub}
                 </p>
               </div>
 
               {/* STUDENT STATS */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white dark:bg-[#141b22] rounded-3xl p-5 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                  <span className="text-xs text-slate-400">
+                <div className="bg-white dark:bg-[#1a241e] rounded-xl p-5 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                  <span className="text-xs text-[#536f57] dark:text-[#9cb19f]">
                     {t.average}
                   </span>
 
-                  <div className="text-3xl font-black mt-2">
+                  <div className="text-3xl font-semibold mt-2">
                     72.8
                   </div>
 
@@ -1016,26 +988,26 @@ export default function App() {
                   </span>
                 </div>
 
-                <div className="bg-white dark:bg-[#141b22] rounded-3xl p-5 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                  <span className="text-xs text-slate-400">
+                <div className="bg-white dark:bg-[#1a241e] rounded-xl p-5 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                  <span className="text-xs text-[#536f57] dark:text-[#9cb19f]">
                     {t.riskStudents}
                   </span>
 
-                  <div className="text-3xl font-black mt-2 text-rose-500">
+                  <div className="text-3xl font-semibold mt-2 text-rose-500">
                     18%
                   </div>
 
-                  <span className="text-[10px] text-slate-400">
+                  <span className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
                     24 ученика
                   </span>
                 </div>
 
-                <div className="bg-white dark:bg-[#141b22] rounded-3xl p-5 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                  <span className="text-xs text-slate-400">
+                <div className="bg-white dark:bg-[#1a241e] rounded-xl p-5 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                  <span className="text-xs text-[#536f57] dark:text-[#9cb19f]">
                     {t.improving}
                   </span>
 
-                  <div className="text-3xl font-black mt-2 text-emerald-600">
+                  <div className="text-3xl font-semibold mt-2 text-emerald-600">
                     64%
                   </div>
 
@@ -1046,14 +1018,14 @@ export default function App() {
               </div>
 
               {/* TOPICS */}
-              <section className="bg-white dark:bg-[#141b22] rounded-3xl p-6 border border-slate-200/70 dark:border-slate-800 shadow-sm">
+              <section className="bg-white dark:bg-[#1a241e] rounded-xl p-6 border border-[#c5d0c7]/70 dark:border-[#324436]">
                 <div className="flex items-center justify-between mb-5">
                   <div>
-                    <h3 className="font-bold text-sm">
+                    <h3 className="font-serif font-bold text-sm">
                       {t.topicStatus}
                     </h3>
 
-                    <p className="text-[10px] text-slate-400 mt-1">
+                    <p className="text-[10px] text-[#536f57] dark:text-[#9cb19f] mt-1">
                       Анализ по ключевым темам
                     </p>
                   </div>
@@ -1066,7 +1038,7 @@ export default function App() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
                     <thead>
-                      <tr className="border-b border-slate-100 dark:border-slate-800 text-slate-400">
+                      <tr className="border-b border-[#e3e8e4] dark:border-[#324436] text-[#536f57] dark:text-[#9cb19f]">
                         <th className="py-3 pr-4">
                           {t.topic}
                         </th>
@@ -1093,7 +1065,7 @@ export default function App() {
                       {topicData.map((row) => (
                         <tr
                           key={row.topic}
-                          className="border-b border-slate-100 dark:border-slate-800 last:border-0"
+                          className="border-b border-[#e3e8e4] dark:border-[#324436] last:border-0"
                         >
                           <td className="py-4 pr-4 font-bold">
                             {row.topic}
@@ -1105,11 +1077,11 @@ export default function App() {
                                 {row.mean}
                               </span>
 
-                              <div className="w-20 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                              <div className="w-20 h-1.5 bg-[#eeeedf] dark:bg-[#222d25] rounded-full overflow-hidden">
                                 <div
                                   className={`h-full rounded-full ${
                                     row.mean >= targetScore
-                                      ? "bg-emerald-500"
+                                      ? "bg-[#536f57]"
                                       : row.mean >= 70
                                       ? "bg-amber-500"
                                       : "bg-rose-500"
@@ -1136,7 +1108,7 @@ export default function App() {
                             </span>
                           </td>
 
-                          <td className="py-4 pr-4 text-slate-500">
+                          <td className="py-4 pr-4 text-[#536f57]">
                             {row.gap === 0
                               ? "—"
                               : `-${row.gap}`}
@@ -1146,7 +1118,7 @@ export default function App() {
                             <span
                               className={`px-2 py-1 rounded-lg text-[10px] font-bold ${
                                 row.status === t.normal
-                                  ? "bg-emerald-50 dark:bg-emerald-950 text-emerald-600"
+                                  ? "bg-[#e3e8e4] dark:bg-[#222d25] text-emerald-600"
                                   : row.status === t.belowTarget
                                   ? "bg-amber-50 dark:bg-amber-950 text-amber-600"
                                   : "bg-rose-50 dark:bg-rose-950 text-rose-600"
@@ -1163,8 +1135,8 @@ export default function App() {
               </section>
 
               {/* TEXTBOOK ANALYSIS */}
-              <section className="bg-white dark:bg-[#141b22] rounded-3xl p-6 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                <h3 className="font-bold text-sm mb-5">
+              <section className="bg-white dark:bg-[#1a241e] rounded-xl p-6 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                <h3 className="font-serif font-bold text-sm mb-5">
                   Эффективность учебников
                 </h3>
 
@@ -1181,9 +1153,9 @@ export default function App() {
                         </span>
                       </div>
 
-                      <div className="h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                      <div className="h-2 bg-[#eeeedf] dark:bg-[#222d25] rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"
+                          className="h-full bg-[#536f57] rounded-full"
                           style={{
                             width: `${book.mean}%`,
                           }}
@@ -1193,8 +1165,8 @@ export default function App() {
                   ))}
                 </div>
 
-                <div className="border-t border-slate-100 dark:border-slate-800 mt-6 pt-5">
-                  <h4 className="text-xs font-bold text-slate-400 mb-3">
+                <div className="border-t border-[#e3e8e4] dark:border-[#324436] mt-6 pt-5">
+                  <h4 className="text-xs font-bold text-[#536f57] dark:text-[#9cb19f] mb-3">
                     OLS adjusted effect
                   </h4>
 
@@ -1202,14 +1174,14 @@ export default function App() {
                     {textbooksData.adjusted.map((book) => (
                       <div
                         key={book.book}
-                        className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60"
+                        className="p-4 rounded-lg bg-[#f7f6f0] dark:bg-[#222d25]/60"
                       >
                         <span className="text-xs font-bold">
                           {book.book}
                         </span>
 
                         <div
-                          className={`text-xl font-black mt-2 ${
+                          className={`text-xl font-semibold mt-2 ${
                             book.effect >= 0
                               ? "text-emerald-600"
                               : "text-rose-500"
@@ -1230,50 +1202,50 @@ export default function App() {
           {activeTab === "schedule" && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                <h2 className="font-serif text-xl font-bold text-[#1f2924] dark:text-white">
                   {t.scheduleTitle}
                 </h2>
 
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-[#536f57] dark:text-[#9cb19f] mt-1">
                   {t.scheduleSub}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white dark:bg-[#141b22] rounded-3xl p-5 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                  <span className="text-xs text-slate-400">
+                <div className="bg-white dark:bg-[#1a241e] rounded-xl p-5 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                  <span className="text-xs text-[#536f57] dark:text-[#9cb19f]">
                     {t.hourEffectLabel}
                   </span>
 
-                  <div className="text-2xl font-extrabold mt-2 text-emerald-600">
+                  <div className="text-2xl font-semibold mt-2 text-emerald-600">
                     +{(0.42 + lambda * 0.3).toFixed(2)}
                   </div>
 
-                  <p className="text-[10px] text-slate-400 mt-1">
+                  <p className="text-[10px] text-[#536f57] dark:text-[#9cb19f] mt-1">
                     {t.pointsPerHour}
                   </p>
                 </div>
 
-                <div className="bg-white dark:bg-[#141b22] rounded-3xl p-5 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                  <span className="text-xs text-slate-400">
+                <div className="bg-white dark:bg-[#1a241e] rounded-xl p-5 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                  <span className="text-xs text-[#536f57] dark:text-[#9cb19f]">
                     {t.projAvgGain}
                   </span>
 
-                  <div className="text-2xl font-extrabold mt-2 text-blue-600">
+                  <div className="text-2xl font-semibold mt-2 text-blue-600">
                     +{(3.2 + lambda * 2.1).toFixed(1)}
                   </div>
 
-                  <p className="text-[10px] text-slate-400 mt-1">
+                  <p className="text-[10px] text-[#536f57] dark:text-[#9cb19f] mt-1">
                     {t.predictedGrowth}
                   </p>
                 </div>
 
-                <div className="bg-white dark:bg-[#141b22] rounded-3xl p-5 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                  <span className="text-xs text-slate-400">
+                <div className="bg-white dark:bg-[#1a241e] rounded-xl p-5 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                  <span className="text-xs text-[#536f57] dark:text-[#9cb19f]">
                     {t.activeDataset}
                   </span>
 
-                  <div className="text-2xl font-extrabold mt-2">
+                  <div className="text-2xl font-semibold mt-2">
                     {dataset.length}
                   </div>
 
@@ -1284,19 +1256,19 @@ export default function App() {
               </div>
 
               {/* LAMBDA */}
-              <section className="bg-white dark:bg-[#141b22] rounded-3xl p-6 border border-slate-200/70 dark:border-slate-800 shadow-sm">
+              <section className="bg-white dark:bg-[#1a241e] rounded-xl p-6 border border-[#c5d0c7]/70 dark:border-[#324436]">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h3 className="font-bold text-sm">
+                    <h3 className="font-serif font-bold text-sm">
                       {t.lblLambda}
                     </h3>
 
-                    <p className="text-xs text-slate-400 mt-1">
+                    <p className="text-xs text-[#536f57] dark:text-[#9cb19f] mt-1">
                       Настройте степень перераспределения учебных часов
                     </p>
                   </div>
 
-                  <div className="w-14 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 font-extrabold">
+                  <div className="w-14 h-10 rounded-xl bg-[#e3e8e4] dark:bg-[#222d25] flex items-center justify-center text-emerald-600 font-semibold">
                     {lambda.toFixed(1)}
                   </div>
                 </div>
@@ -1313,16 +1285,16 @@ export default function App() {
                   className="w-full accent-emerald-600"
                 />
 
-                <div className="flex justify-between text-[10px] text-slate-400 mt-2">
+                <div className="flex justify-between text-[10px] text-[#536f57] dark:text-[#9cb19f] mt-2">
                   <span>{t.minRedistribution}</span>
                   <span>{t.maxRedistribution}</span>
                 </div>
               </section>
 
               {/* HOURS TABLE */}
-              <section className="bg-white dark:bg-[#141b22] rounded-3xl p-6 border border-slate-200/70 dark:border-slate-800 shadow-sm">
+              <section className="bg-white dark:bg-[#1a241e] rounded-xl p-6 border border-[#c5d0c7]/70 dark:border-[#324436]">
                 <div className="flex items-center justify-between mb-5">
-                  <h3 className="font-bold text-sm">
+                  <h3 className="font-serif font-bold text-sm">
                     {t.hoursPlanTitle}
                   </h3>
 
@@ -1334,7 +1306,7 @@ export default function App() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs">
                     <thead>
-                      <tr className="border-b border-slate-100 dark:border-slate-800 text-slate-400">
+                      <tr className="border-b border-[#e3e8e4] dark:border-[#324436] text-[#536f57] dark:text-[#9cb19f]">
                         <th className="py-3">{t.subject}</th>
                         <th className="py-3">
                           {t.baseHoursLabel}
@@ -1368,13 +1340,13 @@ export default function App() {
                         return (
                           <tr
                             key={String(subject)}
-                            className="border-b border-slate-100 dark:border-slate-800 last:border-0"
+                            className="border-b border-[#e3e8e4] dark:border-[#324436] last:border-0"
                           >
                             <td className="py-4 font-bold">
                               {subject}
                             </td>
 
-                            <td className="py-4 text-slate-500">
+                            <td className="py-4 text-[#536f57]">
                               {base}
                             </td>
 
@@ -1389,7 +1361,7 @@ export default function App() {
                             </td>
 
                             <td className="py-4">
-                              <span className="px-2 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600">
+                              <span className="px-2 py-1 rounded-lg bg-[#e3e8e4] dark:bg-[#222d25] text-emerald-600">
                                 {t.optimal}
                               </span>
                             </td>
@@ -1407,20 +1379,17 @@ export default function App() {
           {activeTab === "chat" && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                <h2 className="font-serif text-xl font-bold text-[#1f2924] dark:text-white">
                   {t.chatTitle}
                 </h2>
 
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-[#536f57] dark:text-[#9cb19f] mt-1">
                   {t.chatSub}
                 </p>
               </div>
 
-              <section className="bg-white dark:bg-[#141b22] rounded-3xl border border-slate-200/70 dark:border-slate-800 shadow-sm overflow-hidden">
-                <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-lg">
-                    🤖
-                  </div>
+              <section className="bg-white dark:bg-[#1a241e] rounded-xl border border-[#c5d0c7]/70 dark:border-[#324436] overflow-hidden">
+                <div className="p-5 border-b border-[#e3e8e4] dark:border-[#324436] flex items-center gap-3">
 
                   <div>
                     <div className="font-bold text-sm">
@@ -1444,10 +1413,10 @@ export default function App() {
                       }`}
                     >
                       <div
-                        className={`max-w-[75%] px-4 py-3 rounded-2xl text-xs leading-relaxed ${
+                        className={`max-w-[75%] px-4 py-3 rounded-lg text-xs leading-relaxed ${
                           message.role === "user"
-                            ? "bg-emerald-600 text-white rounded-br-md"
-                            : "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-bl-md"
+                            ? "bg-[#324436] dark:bg-[#536f57] text-white rounded-br-md"
+                            : "bg-[#eeeedf] dark:bg-[#222d25] text-[#324436] dark:text-[#c5d0c7] rounded-bl-md"
                         }`}
                       >
                         {message.text}
@@ -1457,7 +1426,7 @@ export default function App() {
                 </div>
 
                 <div className="px-5 pb-4">
-                  <p className="text-[10px] font-bold text-slate-400 mb-2">
+                  <p className="text-[10px] font-bold text-[#536f57] dark:text-[#9cb19f] mb-2">
                     {t.kbPromptsTitle}
                   </p>
 
@@ -1469,7 +1438,7 @@ export default function App() {
                         onClick={() =>
                           sendChatMessage(prompt.query)
                         }
-                        className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-[10px] font-bold hover:bg-emerald-50 dark:hover:bg-emerald-950 transition-all"
+                        className="px-3 py-2 rounded-xl bg-[#eeeedf] dark:bg-[#222d25] text-[10px] font-bold hover:bg-[#e3e8e4] dark:hover:bg-[#222d25] transition-all"
                       >
                         {lang === "kz"
                           ? prompt.labelKz
@@ -1479,7 +1448,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="p-4 border-t border-slate-100 dark:border-slate-800">
+                <div className="p-4 border-t border-[#e3e8e4] dark:border-[#324436]">
                   <div className="flex gap-2">
                     <input
                       value={chatInput}
@@ -1492,13 +1461,13 @@ export default function App() {
                         }
                       }}
                       placeholder={t.chatPlaceholder}
-                      className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-2xl px-4 py-3 text-xs outline-none focus:ring-2 focus:ring-emerald-500/30"
+                      className="flex-1 bg-[#eeeedf] dark:bg-[#222d25] rounded-lg px-4 py-3 text-xs outline-none focus:ring-2 focus:ring-[#536f57]/40"
                     />
 
                     <button
                       type="button"
                       onClick={() => sendChatMessage()}
-                      className="px-5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all"
+                      className="px-5 rounded-lg bg-[#324436] dark:bg-[#536f57] hover:bg-[#28372c] text-white text-xs font-bold transition-all"
                     >
                       {t.sendBtn}
                     </button>
@@ -1512,24 +1481,24 @@ export default function App() {
           {activeTab === "settings" && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+                <h2 className="font-serif text-xl font-bold text-[#1f2924] dark:text-white">
                   {t.settings}
                 </h2>
 
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-[#536f57] dark:text-[#9cb19f] mt-1">
                   {t.settingsSub}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 {/* PROFILE */}
-                <section className="bg-white dark:bg-[#141b22] rounded-3xl p-6 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                  <h3 className="font-bold text-sm mb-5">
+                <section className="bg-white dark:bg-[#1a241e] rounded-xl p-6 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                  <h3 className="font-serif font-bold text-sm mb-5">
                     {t.profile}
                   </h3>
 
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-xl font-black">
+                    <div className="w-14 h-14 rounded-lg bg-[#324436] dark:bg-[#536f57] text-white flex items-center justify-center text-xl font-semibold">
                       M
                     </div>
 
@@ -1538,15 +1507,15 @@ export default function App() {
                         Мартин Рай
                       </div>
 
-                      <div className="text-xs text-slate-400">
+                      <div className="text-xs text-[#536f57] dark:text-[#9cb19f]">
                         {t.userRole}
                       </div>
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60">
-                      <div className="text-[10px] text-slate-400">
+                    <div className="p-4 rounded-lg bg-[#f7f6f0] dark:bg-[#222d25]/60">
+                      <div className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
                         {t.language}
                       </div>
 
@@ -1557,8 +1526,8 @@ export default function App() {
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60">
-                      <div className="text-[10px] text-slate-400">
+                    <div className="p-4 rounded-lg bg-[#f7f6f0] dark:bg-[#222d25]/60">
+                      <div className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
                         {t.role}
                       </div>
 
@@ -1570,20 +1539,20 @@ export default function App() {
                 </section>
 
                 {/* INTERFACE */}
-                <section className="bg-white dark:bg-[#141b22] rounded-3xl p-6 border border-slate-200/70 dark:border-slate-800 shadow-sm">
-                  <h3 className="font-bold text-sm mb-5">
+                <section className="bg-white dark:bg-[#1a241e] rounded-xl p-6 border border-[#c5d0c7]/70 dark:border-[#324436]">
+                  <h3 className="font-serif font-bold text-sm mb-5">
                     {t.interface}
                   </h3>
 
                   <div className="space-y-4">
                     {/* DARK */}
-                    <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60">
+                    <div className="flex items-center justify-between p-4 rounded-lg bg-[#f7f6f0] dark:bg-[#222d25]/60">
                       <div>
                         <div className="text-xs font-bold">
                           {t.darkTheme}
                         </div>
 
-                        <div className="text-[10px] text-slate-400">
+                        <div className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
                           {t.darkThemeSub}
                         </div>
                       </div>
@@ -1593,8 +1562,8 @@ export default function App() {
                         onClick={() => setDarkMode(!darkMode)}
                         className={`w-12 h-7 rounded-full transition-all ${
                           darkMode
-                            ? "bg-emerald-600"
-                            : "bg-slate-300 dark:bg-slate-700"
+                            ? "bg-[#324436] dark:bg-[#536f57]"
+                            : "bg-[#c5d0c7] dark:bg-[#324436]"
                         }`}
                       >
                         <div
@@ -1606,13 +1575,13 @@ export default function App() {
                     </div>
 
                     {/* NOTIFICATIONS */}
-                    <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60">
+                    <div className="flex items-center justify-between p-4 rounded-lg bg-[#f7f6f0] dark:bg-[#222d25]/60">
                       <div>
                         <div className="text-xs font-bold">
                           {t.notifications}
                         </div>
 
-                        <div className="text-[10px] text-slate-400">
+                        <div className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
                           {t.notificationsSub}
                         </div>
                       </div>
@@ -1624,8 +1593,8 @@ export default function App() {
                         }
                         className={`w-12 h-7 rounded-full transition-all ${
                           notifications
-                            ? "bg-emerald-600"
-                            : "bg-slate-300 dark:bg-slate-700"
+                            ? "bg-[#324436] dark:bg-[#536f57]"
+                            : "bg-[#c5d0c7] dark:bg-[#324436]"
                         }`}
                       >
                         <div
@@ -1639,13 +1608,13 @@ export default function App() {
                     </div>
 
                     {/* COMPACT */}
-                    <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60">
+                    <div className="flex items-center justify-between p-4 rounded-lg bg-[#f7f6f0] dark:bg-[#222d25]/60">
                       <div>
                         <div className="text-xs font-bold">
                           {t.compactMode}
                         </div>
 
-                        <div className="text-[10px] text-slate-400">
+                        <div className="text-[10px] text-[#536f57] dark:text-[#9cb19f]">
                           {t.compactModeSub}
                         </div>
                       </div>
@@ -1657,8 +1626,8 @@ export default function App() {
                         }
                         className={`w-12 h-7 rounded-full transition-all ${
                           compactMode
-                            ? "bg-emerald-600"
-                            : "bg-slate-300 dark:bg-slate-700"
+                            ? "bg-[#324436] dark:bg-[#536f57]"
+                            : "bg-[#c5d0c7] dark:bg-[#324436]"
                         }`}
                       >
                         <div
